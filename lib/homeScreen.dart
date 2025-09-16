@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 
-class Homescreen extends StatelessWidget {
+class Homescreen extends StatefulWidget {
   const Homescreen({super.key});
 
+  @override
+  State<Homescreen> createState() => _HomescreenState();
+}
+
+class _HomescreenState extends State<Homescreen> {
+  String data = "Hellow World";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,12 +19,14 @@ class Homescreen extends StatelessWidget {
       body: Column(
         children: [
           Text(
-            "Hello World",
+            data,
             style: TextStyle(fontSize: 30),
           ),
           ElevatedButton(
               onPressed: () {
-                print("Hey Button is clicked");
+                setState(() {
+                  data = "APIIT Sri Lanka";
+                });
               },
               child: Text("Click Me to Change the text"))
         ],
